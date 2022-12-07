@@ -39,7 +39,7 @@ const removeBook = (element) => {
 };
 
 const addBookToViewport = (book) => {
-  const item = document.createElement("li");
+  const item = document.createElement('li');
 
   item.innerHTML = `
           <p>${book.title} by ${book.author}</p>
@@ -50,7 +50,7 @@ const addBookToViewport = (book) => {
 };
 
 const removeBookInViewport = (element) => {
-  if (element.classList.contains("button")) {
+  if (element.classList.contains('button')) {
     element.parentElement.remove();
   }
 };
@@ -60,17 +60,17 @@ const displayBooks = () => {
   books.forEach((book) => addBookToViewport(book));
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   displayBooks();
 });
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
 
-  if (title !== "" && author !== "") {
+  if (title !== '' && author !== '') {
     const book = { title: `${title}`, author: `${author}` };
     addBookToViewport(book);
     setBook(book);
@@ -78,7 +78,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-bookContainer.addEventListener("click", (e) => {
+bookContainer.addEventListener('click', (e) => {
   removeBook(e.target);
   removeBookInViewport(e.target);
 });
