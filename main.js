@@ -37,3 +37,48 @@ const removeBook = (element) => {
     });
   }
 };
+
+const addBookToViewport = (book) => {
+  const item = document.createElement("li");
+
+  item.innerHTML = `
+          <p>${book.title} by ${book.author}</p>
+          <button class="button">Remove</button>
+          `;
+
+  bookContainer.appendChild(item);
+};
+
+const removeBookInViewport = (element) => {
+  if (element.classList.contains("button")) {
+    element.parentElement.remove();
+  }
+};
+
+const displayBooks = () => {
+  const books = getBookData();
+  books.forEach((book) => addBookToViewport(book));
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  displayBooks();
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+
+  if (title !== "" && author !== "") {
+    const book = { title: `${title}`, author: `${author}` };
+    addBookToViewport(book);
+    setBook(book);
+    form.reset();
+  }
+});
+
+bookContainer.addEventListener("click", (e) => {
+  removeBook(e.target);
+  removeBookInViewport(e.target);
+});
