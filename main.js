@@ -1,9 +1,9 @@
 let booksList = [];
 
-const form = document.querySelector('#form');
+const form = document.querySelector('.form');
 const bookContainer = document.querySelector('.box');
-
-const getBookData = () => {
+// get the item from the local storage
+const getBook = () => {
   let books;
   if (localStorage.getItem('Data') != null) {
     books = JSON.parse(localStorage.getItem('Data'));
@@ -12,16 +12,17 @@ const getBookData = () => {
   }
   return books;
 };
-
+// set items on local strage
 const setBook = (book) => {
-  const books = getBookData();
+  const books = getBook();
   books.push(book);
   booksList = books;
   localStorage.setItem('Data', JSON.stringify(books));
 };
 
+// remove item from local storage
 const removeBook = (element) => {
-  const books = getBookData();
+  const books = getBook();
   const position = Array.prototype.indexOf.call(
     bookContainer.childNodes,
     element.parentElement,
@@ -43,20 +44,21 @@ const addBookToViewport = (book) => {
 
   item.innerHTML = `
           <p>${book.title} by ${book.author}</p>
-          <button class="button">Remove</button>
+          <button class="remove">Remove</button>
           `;
 
   bookContainer.appendChild(item);
 };
 
 const removeBookInViewport = (element) => {
-  if (element.classList.contains('button')) {
+  if (element.classList.contains('remove')) {
     element.parentElement.remove();
+    removeBook(element)
   }
 };
 
 const displayBooks = () => {
-  const books = getBookData();
+  const books = getBook();
   books.forEach((book) => addBookToViewport(book));
 };
 
