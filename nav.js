@@ -1,8 +1,7 @@
 const List = document.getElementById('List');
 const AddNew = document.getElementById('AddNew');
 const Contact = document.getElementById('Contact');
-const dayDate = document.getElementById('dateTime')
-
+const dayDate = document.getElementById('dateTime');
 const listBookSection = document.getElementById('box');
 const addNewBook = document.getElementById('form');
 const contactMe = document.getElementById('contact-section');

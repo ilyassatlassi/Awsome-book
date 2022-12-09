@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100%; 
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,12 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.navbar li {
+  list-style: none;
+  padding: 12px;
+  font-size: 20px;
 }
 
 .box li {
@@ -46,6 +52,7 @@ hr {
 .box li:nth-child(odd) {
   background-color: #dddd;
 }
+
 header {
   width: 90%;
   margin-top: 12px;
@@ -69,12 +76,6 @@ nav h1 {
   display: flex;
 }
 
-.navbar li {
-  list-style: none;
-  padding: 12px;
-  font-size: 20px;
-}
-
 .contact-section {
   display: flex;
   flex-direction: column;
@@ -87,7 +88,6 @@ nav h1 {
 .contact-section-heading {
   text-align: center;
 }
-
 
 .footer {
   position: absolute;
