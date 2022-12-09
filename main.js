@@ -1,86 +1,59 @@
-let booksList = [];
+let booksListsList = [];
 
-const form = document.querySelector('.form');
+const form = document.getElementById('form');
 const bookContainer = document.querySelector('.box');
-// get the item from the local storage
-const getBook = () => {
-  let books;
-  if (localStorage.getItem('Data') != null) {
-    books = JSON.parse(localStorage.getItem('Data'));
-  } else {
-    books = booksList;
-  }
-  return books;
-};
-// set items on local strage
-const setBook = (book) => {
-  const books = getBook();
-  books.push(book);
-  booksList = books;
-  localStorage.setItem('Data', JSON.stringify(books));
-};
+const title = document.getElementById('title');
+const author = document.getElementById('author');
 
-// remove item from local storage
-const removeBook = (element) => {
-  const books = getBook();
-  const position = Array.prototype.indexOf.call(
-    bookContainer.childNodes,
-    element.parentElement,
-  ) - 1;
-
-  if (element.classList.contains('button')) {
-    books.forEach((book, index) => {
-      if (position === index) {
-        books.splice(index, 1);
-      }
-      booksList = books;
-      localStorage.setItem('Data', JSON.stringify(books));
-    });
-  }
-};
-
-const addBookToViewport = (book) => {
-  const item = document.createElement('li');
-
-  item.innerHTML = `
-          <p>${book.title} by ${book.author}</p>
-          <button class="remove">Remove</button>
-          `;
-
-  bookContainer.appendChild(item);
-};
-
-const removeBookInViewport = (element) => {
-  if (element.classList.contains('remove')) {
-    element.parentElement.remove();
-    removeBook(element)
-  }
-};
-
-const displayBooks = () => {
-  const books = getBook();
-  books.forEach((book) => addBookToViewport(book));
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  displayBooks();
-});
-
+// add the item to localstorage
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+    e.preventDefault();
+  
+    if (title.value && author.value !== '') {
+      const book = {
+        id: Math.random(),
+        title: title.value,
+        author: author.value,
+      };
+  
+      if (localStorage.getItem('booksList') === null) {
+        booksList = [];
+      } else {
+        booksList = JSON.parse(localStorage.getItem('booksList'));
+      }
+      booksList.push(book);
+      localStorage.setItem('booksList', JSON.stringify(booksList));
+      addBook(book);
+      form.reset();
+    }
+  });
+  
+// add the book to the view page
+  const addBook = (book) => {
+    bookContainer.innerHTML += `
+      <li id='${book.id}'>
+        <p>${book.title}</p>
+        <p>${book.author}</p>
+        <button id='delete' type='button' onclick = 'removeBook(${book.id})'>Remove</button>
+      </li>
+  `;
+  };
 
-  const title = document.querySelector('#title').value;
-  const author = document.querySelector('#author').value;
-
-  if (title !== '' && author !== '') {
-    const book = { title: `${title}`, author: `${author}` };
-    addBookToViewport(book);
-    setBook(book);
-    form.reset();
+// remove item from localstorage
+  function removeBook(bookId) {
+    const deleteBook = JSON.parse(localStorage.getItem('booksList'));
+  
+    const newArray = deleteBook.filter((book) => book.id !== bookId);
+    localStorage.setItem('booksList', JSON.stringify(newArray));
+  
+    const booksId = document.getElementById(bookId);
+    booksId.remove();
   }
-});
-
-bookContainer.addEventListener('click', (e) => {
-  removeBook(e.target);
-  removeBookInViewport(e.target);
-});
+  
+  const storedBooks = JSON.parse(localStorage.getItem('booksList')) || [];
+  
+  if (localStorage.getItem('booksList')) {
+    storedBooks.map((book) => addBook(book));
+  }
+  
+  removeBook();
