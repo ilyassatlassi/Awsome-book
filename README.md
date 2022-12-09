@@ -35,32 +35,24 @@ After you're finished please remove all the comments and instructions!
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [FIFA] <a name="about-project"></a>
+# 📖 [Awsome-book] <a name="about-project"></a>
 
-> This show the FIFA & and QATAR WORLD CUP 2022
->and also other champions realease in that date.
+Awesome Books In this project, we made a basic website that allows users to add/remove books from a list. we achieved that by using JavaScript classes. we also dynamically modified the DOM and added basic events.
 
-**[FIFA]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -75,21 +67,12 @@ After you're finished please remove all the comments and instructions!
 
 > Describe between 1-3 key features of the application.
 
-- **[Functionality_to_navbar]**
-- **[Dynamic_page]**
-- **[Separate_create_Home_About]**
+- **[Add and Remove the book]**
+- **[Storage in Local Storage]**
+- **[Create with JavaScript ES6]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://ilyassatlassi.github.io/capstone/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -103,11 +86,9 @@ To get a local copy up and running, follow these steps.
 
 Clone this repository to your desired folder:
 
-Clone this repository to your desired folder:
-
 ```sh
   cd my-folder
-  git clone https://github.com/ilyassatlassi/capstone.git
+  git clone https://github.com/ilyassatlassi/Awsome-book.git
 ```
 -
 
@@ -148,9 +129,6 @@ Example command:
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
-- **[Functionality_to_navbar]**
-- **[Dynamic_page]**
-- **[Separate_create_Home_About]**
 
 Feel free to check the [issues page](../../issues/).
 
