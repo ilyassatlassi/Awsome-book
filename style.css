@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,10 +31,6 @@ section {
   padding: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -49,4 +45,59 @@ hr {
 
 .box li:nth-child(odd) {
   background-color: #dddd;
+}
+header {
+  width: 90%;
+  margin-top: 12px;
+  border: 2px solid black;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 30px;
+  padding-left: 1%;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar li {
+  list-style: none;
+  padding: 12px;
+  font-size: 20px;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 30px;
+}
+
+.contact-section-heading {
+  text-align: center;
+}
+
+
+.footer {
+  position: absolute;
+  text-align: center;
+  background-color: beige;
+  padding: 50px 20px;
+  width: 100%;
+  bottom: 1px;
+}
+
+.hidden {
+  display: none;
 }
